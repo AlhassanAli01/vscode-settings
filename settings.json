@@ -1,11 +1,15 @@
 {
   "editor.formatOnSave": true,
   "editor.fontSize": 19,
-  "window.zoomLevel": -1,
+  "window.zoomLevel": -1.5,
   "workbench.editor.enablePreview": false,
   "editor.renderIndentGuides": false,
   "editor.minimap.enabled": false,
-  "scrolloff.alwaysCenter": true,
+  "scrolloff.scrolloff": 8,
+  "vim.easymotionMarkerWidthPerChar": 10,
+  "vim.easymotionMarkerBackgroundColor": "green",
+  "vim.easymotionMarkerFontSize": "18",
+  "vim.easymotionMarkerYOffset": 20,
   "editor.cursorBlinking": "smooth",
   "typescript.tsserver.trace": "messages",
   "editor.showUnused": true,
@@ -20,6 +24,14 @@
   "vim.highlightedyank.enable": true,
   "vim.insertModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["S"],
+      "after": ["<leader>", "<leader>", "/"]
+    },
+    {
+      "before": ["s"],
+      "after": ["<leader>", "<leader>", "2", "s"]
+    },
     {
       "before": ["<leader>", "H"],
       "commands": [":nohl"]
@@ -48,17 +60,21 @@
       "before": ["<leader>", "e"],
       "commands": ["workbench.action.toggleSidebarVisibility"]
     },
-
     {
       "before": ["<leader>", "a", "r"],
       "commands": ["editor.action.rename"],
+      "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "g", "b"],
+      "commands": ["gitlens.toggleLineBlame"],
       "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
     }
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
-    "<C-f>": false
+    "<C-f>": true
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -68,5 +84,7 @@
   "todo-tree.tree.showScanModeButton": false,
   "workbench.iconTheme": "eq-material-theme-icons-light",
   "workbench.colorTheme": "Evondev Dracula Normal Constrast",
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": true,
+  "terminal.integrated.fontSize": 18,
+  "editor.smoothScrolling": true
 }
